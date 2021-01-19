@@ -666,6 +666,26 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
+	name: "libqdMetaData",
+	owner: "google",
+	strip: {
+		none: true,
+	},
+	target: {
+		android_arm: {
+			srcs: ["proprietary/vendor/lib/libqdMetaData.so"],
+		},
+		android_arm64: {
+			srcs: ["proprietary/vendor/lib64/libqdMetaData.so"],
+		},
+	},
+    shared_libs: ["libc++", "libc", "libcutils", "libdl", "libion", "liblog", "libm"],
+	compile_multilib: "both",
+	prefer: true,
+	soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
 	name: "libsdsprpc",
 	owner: "google",
 	strip: {
